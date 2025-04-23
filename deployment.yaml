@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mavenapp
+  name: mavenapplication
   labels:
-    app: mavenapp
+    app: mavenapplication
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mavenapp
+      app: mavenapplication
   template:
     metadata:
       labels:
-        app: mavenapp
+        app: mavenapplication
     spec:
       containers:
-      - name: mavenapp
+      - name: mavenapplication
         image: tomcat:9.0  # Using the official Tomcat image, modify if a custom image is required
         ports:
         - containerPort: 8080  # Tomcat's default port
         volumeMounts:
-        - name: mavenapp
+        - name: mavenapplication
           mountPath: /usr/local/tomcat/webapps  # Tomcat's default directory for WAR files
       volumes:
-      - name: mavenapp
+      - name: mavenapplication
         emptyDir: {}  # Placeholder, replace with PersistentVolume if required
